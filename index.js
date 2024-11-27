@@ -1,16 +1,14 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
 
 app.get('/', (req, res) => {
-  res.send('¡Hola Mundo! Mi primer servidor Node.js');
+  res.send('Hola Mundo');
 });
 
-// Solo ejecutar el servidor si no estamos en un entorno de testing
+module.exports = app;
+
 if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  app.listen(3000, () => {
+    console.log('Servidor escuchando en el puerto 3000');
   });
 }
-
-module.exports = app;

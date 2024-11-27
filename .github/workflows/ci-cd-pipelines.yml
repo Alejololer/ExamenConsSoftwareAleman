@@ -19,7 +19,11 @@ jobs:
         node-version: '18.x'
     
     - name: Install dependencies
-      run: npm install
+      run: npm ci
+      env:
+        NODE_ENV: development
+    - name: Fix Jest Permissions
+      run: chmod +x ./node_modules/.bin/jest
     
     - name: Run tests
       run: npm test
